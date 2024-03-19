@@ -1,0 +1,5 @@
+ERROR: In /home/kulsoom/.volare/sky130A/libs.tech/klayout/drc/sky130A_mr.drc: 'source': LAYER record expected (position=2062862, record number=164691, cell=dff_ram_4x72) in Layout::read
+ERROR: 'source': LAYER record expected (position=2062862, record number=164691, cell=dff_ram_4x72) in Layout::read in Executable::execute
+  /home/kulsoom/.volare/sky130A/libs.tech/klayout/drc/sky130A_mr.drc:28:in `execute'
+  :/built-in-macros/drc_interpreters.lym:27:in `instance_eval'
+  :/built-in-macros/drc_interpreters.lym:27:in `execute'

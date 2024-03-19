@@ -1,0 +1,27 @@
+[ERROR]: during executing: "klayout -b -zz -r /home/kulsoom/.volare/sky130A/libs.tech/klayout/drc/sky130A_mr.drc -rd topcell=dff_ram_4x72 -rd input=/openlane/designs/dff_ram_4*72/runs/first_run/results/signoff/dff_ram_4x72.gds -rd report=/openlane/designs/dff_ram_4*72/runs/first_run/reports/signoff/violations.xml -rd feol=true -rd beol=true -rd floating_metal=false -rd seal=true -rd thread=1 |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/43-drc-klayout.log"
+[ERROR]: Exit code: 1
+[ERROR]: Last 10 lines:
+ERROR: In /home/kulsoom/.volare/sky130A/libs.tech/klayout/drc/sky130A_mr.drc: 'source': LAYER record expected (position=2062862, record number=164691, cell=dff_ram_4x72) in Layout::read
+ERROR: 'source': LAYER record expected (position=2062862, record number=164691, cell=dff_ram_4x72) in Layout::read in Executable::execute
+  /home/kulsoom/.volare/sky130A/libs.tech/klayout/drc/sky130A_mr.drc:28:in `execute'
+  :/built-in-macros/drc_interpreters.lym:27:in `instance_eval'
+  :/built-in-macros/drc_interpreters.lym:27:in `execute'
+child process exited abnormally
+
+[ERROR]: Step 43 (drc) failed with error:
+-code 1 -level 0 -errorcode NONE -errorinfo {
+    while executing
+"throw_error"
+    (procedure "try_exec" line 15)
+    invoked from within
+"try_exec klayout  -b  -zz  -r $drc_script_path  -rd topcell=$::env(DESIGN_NAME)  -rd input=$::env(CURRENT_GDS)  -rd report=$xml_report  -rd feol=$feol..."
+    (procedure "run_klayout_drc_sky130" line 34)
+    invoked from within
+"run_klayout_drc_sky130"
+    (procedure "run_klayout_drc" line 10)
+    invoked from within
+"run_klayout_drc"
+    (procedure "run_drc_step" line 12)
+    invoked from within
+"run_drc_step"} -errorline 1
+[ERROR]: Flow failed.

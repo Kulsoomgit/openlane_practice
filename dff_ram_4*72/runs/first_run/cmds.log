@@ -1,0 +1,246 @@
+Tue Mar 19 10:20:44 UTC 2024 - Executing "{openroad -exit -no_init -python /openlane/scripts/odbpy/lefutil.py get_metal_layers -o /openlane/designs/dff_ram_4*72/runs/first_run/tmp/layers.list /home/kulsoom/.volare/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef}"
+
+Tue Mar 19 10:20:44 UTC 2024 - Executing "{/openlane/scripts/mergeLef.py -o /openlane/designs/dff_ram_4*72/runs/first_run/tmp/merged.nom.lef -i /home/kulsoom/.volare/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef {/home/kulsoom/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef /home/kulsoom/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef} |& tee /dev/null}"
+
+Tue Mar 19 10:20:45 UTC 2024 - Executing "{/openlane/scripts/mergeLef.py -o /openlane/designs/dff_ram_4*72/runs/first_run/tmp/merged.min.lef -i /home/kulsoom/.volare/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__min.tlef {/home/kulsoom/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef /home/kulsoom/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef} |& tee /dev/null}"
+
+Tue Mar 19 10:20:45 UTC 2024 - Executing "{/openlane/scripts/mergeLef.py -o /openlane/designs/dff_ram_4*72/runs/first_run/tmp/merged.max.lef -i /home/kulsoom/.volare/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__max.tlef {/home/kulsoom/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef /home/kulsoom/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef} |& tee /dev/null}"
+
+Tue Mar 19 10:20:45 UTC 2024 - Executing "{python3 /openlane/scripts/mergeLib.py --output /openlane/designs/dff_ram_4*72/runs/first_run/tmp/synthesis/merged.lib --name sky130A_merged /home/kulsoom/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib}"
+
+Tue Mar 19 10:20:45 UTC 2024 - Executing "{python3 /openlane/scripts/libtrim.py --cell-file /openlane/designs/dff_ram_4*72/runs/first_run/tmp/synthesis/trimmed.lib.exclude.list --output /openlane/designs/dff_ram_4*72/runs/first_run/tmp/synthesis/trimmed.lib /openlane/designs/dff_ram_4*72/runs/first_run/tmp/synthesis/merged.lib}"
+
+Tue Mar 19 10:20:45 UTC 2024 - Executing "{python3 /openlane/scripts/libtrim.py --cell-file /openlane/designs/dff_ram_4*72/runs/first_run/tmp/cts/cts.lib.exclude.list --output /openlane/designs/dff_ram_4*72/runs/first_run/tmp/cts/cts.lib /home/kulsoom/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib}"
+
+Tue Mar 19 10:20:46 UTC 2024 - Executing "{python3 /openlane/scripts/libtrim.py --cell-file /openlane/designs/dff_ram_4*72/runs/first_run/tmp/cts/cts-fastest.lib.exclude.list --output /openlane/designs/dff_ram_4*72/runs/first_run/tmp/cts/cts-fastest.lib /home/kulsoom/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib}"
+
+Tue Mar 19 10:20:47 UTC 2024 - Executing "{python3 /openlane/scripts/libtrim.py --cell-file /openlane/designs/dff_ram_4*72/runs/first_run/tmp/cts/cts-slowest.lib.exclude.list --output /openlane/designs/dff_ram_4*72/runs/first_run/tmp/cts/cts-slowest.lib /home/kulsoom/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib}"
+
+Tue Mar 19 10:20:47 UTC 2024 - Executing "{python3 /openlane/scripts/new_tracks.py -i /home/kulsoom/.volare/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tracks.info -o /openlane/designs/dff_ram_4*72/runs/first_run/tmp/routing/config.tracks}"
+
+Tue Mar 19 10:20:47 UTC 2024 - Executing "{echo {OpenLane 9dbd8b5ea2bd891bed4dcc97df5c7439083f0368} > /openlane/designs/dff_ram_4*72/runs/first_run/OPENLANE_VERSION}"
+
+Tue Mar 19 10:20:47 UTC 2024 - Executing "{yosys -c /openlane/scripts/yosys/blackbox.tcl}"
+
+Tue Mar 19 10:20:48 UTC 2024 - Executing "{verilator -Wall --lint-only --Wno-DECLFILENAME --top-module dff_ram_4x72 /openlane/designs/dff_ram_4*72/runs/first_run/tmp/synthesis/blackbox/sky130_fd_sc_hd__blackbox.v /openlane/designs/dff_ram_4*72/src/dff_ram_4*72.v -Wno-fatal --relative-includes |& tee /openlane/designs/dff_ram_4*72/runs/first_run/logs/synthesis/linter.log /dev/null}"
+
+Tue Mar 19 10:20:48 UTC 2024 - Executing "{sed -E {s/^([[:space:]]+)pg_pin(.*)/\1pin\2\n\1    direction : "inout";/g} /home/kulsoom/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib > /openlane/designs/dff_ram_4*72/runs/first_run/tmp/synthesis/1-sky130_fd_sc_hd__tt_025C_1v80.no_pg.lib}"
+
+Tue Mar 19 10:20:48 UTC 2024 - Executing "{sed -E {s/^([[:space:]]+)pg_pin(.*)/\1pin\2\n\1    direction : "inout";/g} /openlane/designs/dff_ram_4*72/runs/first_run/tmp/synthesis/trimmed.lib > /openlane/designs/dff_ram_4*72/runs/first_run/tmp/synthesis/1-trimmed.no_pg.lib}"
+
+Tue Mar 19 10:20:48 UTC 2024 - Executing "yosys -c /openlane/scripts/yosys/synth.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/synthesis/1-synthesis.log"
+
+Tue Mar 19 10:20:48 UTC 2024 - Executing "{yosys -c /openlane/scripts/yosys/synth.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/synthesis/1-synthesis.log}"
+
+Tue Mar 19 10:20:50 UTC 2024 - Executing "{sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/dff_ram_4*72\/runs\/first_run\/results\/synthesis\/dff_ram_4x72.v/} /openlane/designs/dff_ram_4*72/runs/first_run/config.tcl}"
+
+Tue Mar 19 10:20:50 UTC 2024 - Executing "{sed -i.bak /defparam/d /openlane/designs/dff_ram_4*72/runs/first_run/results/synthesis/dff_ram_4x72.v}"
+
+Tue Mar 19 10:20:50 UTC 2024 - Executing "sta -exit -no_init /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/synthesis/2-sta.log"
+
+Tue Mar 19 10:20:50 UTC 2024 - Executing "{sta -exit -no_init /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/synthesis/2-sta.log}"
+
+Tue Mar 19 10:20:51 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/floorplan.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/floorplan/3-initial_fp.log"
+
+Tue Mar 19 10:20:51 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/floorplan.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/floorplan/3-initial_fp.log}"
+
+Tue Mar 19 10:20:52 UTC 2024 - Executing "{openroad -exit -no_init -python /openlane/scripts/odbpy/defutil.py extract_core_dims --output-data /openlane/designs/dff_ram_4*72/runs/first_run/tmp/dimensions.txt --input-lef /openlane/designs/dff_ram_4*72/runs/first_run/tmp/merged.nom.lef /openlane/designs/dff_ram_4*72/runs/first_run/tmp/floorplan/3-initial_fp.def}"
+
+Tue Mar 19 10:20:52 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/ioplacer.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/floorplan/4-io.log"
+
+Tue Mar 19 10:20:52 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/ioplacer.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/floorplan/4-io.log}"
+
+Tue Mar 19 10:20:53 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/tapcell.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/floorplan/5-tap.log"
+
+Tue Mar 19 10:20:53 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/tapcell.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/floorplan/5-tap.log}"
+
+Tue Mar 19 10:20:54 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/pdn.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/floorplan/6-pdn.log"
+
+Tue Mar 19 10:20:54 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/pdn.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/floorplan/6-pdn.log}"
+
+Tue Mar 19 10:20:54 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/gpl.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/placement/6-global_skip_io.log"
+
+Tue Mar 19 10:20:54 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/gpl.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/placement/6-global_skip_io.log}"
+
+Tue Mar 19 10:20:55 UTC 2024 - Executing "{sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/dff_ram_4*72\/runs\/first_run\/tmp\/placement\/7-global_skip_io.nl.v/} /openlane/designs/dff_ram_4*72/runs/first_run/config.tcl}"
+
+Tue Mar 19 10:20:55 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/placement/8-gpl_sta.log"
+
+Tue Mar 19 10:20:56 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/placement/8-gpl_sta.log}"
+
+Tue Mar 19 10:20:57 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/ioplacer.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/placement/9-io.log"
+
+Tue Mar 19 10:20:57 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/ioplacer.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/placement/9-io.log}"
+
+Tue Mar 19 10:20:57 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/gpl.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/placement/9-global.log"
+
+Tue Mar 19 10:20:57 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/gpl.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/placement/9-global.log}"
+
+Tue Mar 19 10:20:58 UTC 2024 - Executing "{sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/dff_ram_4*72\/runs\/first_run\/tmp\/placement\/10-global.nl.v/} /openlane/designs/dff_ram_4*72/runs/first_run/config.tcl}"
+
+Tue Mar 19 10:20:58 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/placement/11-gpl_sta.log"
+
+Tue Mar 19 10:20:58 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/placement/11-gpl_sta.log}"
+
+Tue Mar 19 10:20:59 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/resizer.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/placement/12-resizer.log"
+
+Tue Mar 19 10:20:59 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/resizer.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/placement/12-resizer.log}"
+
+Tue Mar 19 10:21:02 UTC 2024 - Executing "{sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/dff_ram_4*72\/runs\/first_run\/tmp\/placement\/12-resizer.nl.v/} /openlane/designs/dff_ram_4*72/runs/first_run/config.tcl}"
+
+Tue Mar 19 10:21:02 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/dpl.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/placement/13-detailed.log"
+
+Tue Mar 19 10:21:02 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/dpl.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/placement/13-detailed.log}"
+
+Tue Mar 19 10:21:03 UTC 2024 - Executing "{sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/dff_ram_4*72\/runs\/first_run\/results\/placement\/dff_ram_4x72.nl.v/} /openlane/designs/dff_ram_4*72/runs/first_run/config.tcl}"
+
+Tue Mar 19 10:21:03 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/placement/14-dpl_sta.log"
+
+Tue Mar 19 10:21:03 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/placement/14-dpl_sta.log}"
+
+Tue Mar 19 10:21:04 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/cts.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/cts/15-cts.log"
+
+Tue Mar 19 10:21:04 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/cts.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/cts/15-cts.log}"
+
+Tue Mar 19 10:21:12 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/cts/16-cts_sta.log"
+
+Tue Mar 19 10:21:12 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/cts/16-cts_sta.log}"
+
+Tue Mar 19 10:21:14 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/resizer_timing.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/cts/17-resizer.log"
+
+Tue Mar 19 10:21:14 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/resizer_timing.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/cts/17-resizer.log}"
+
+Tue Mar 19 10:21:16 UTC 2024 - Executing "{sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/dff_ram_4*72\/runs\/first_run\/tmp\/cts\/17-dff_ram_4x72.resized.nl.v/} /openlane/designs/dff_ram_4*72/runs/first_run/config.tcl}"
+
+Tue Mar 19 10:21:17 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/resizer_routing_design.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/routing/18-resizer_design.log"
+
+Tue Mar 19 10:21:17 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/resizer_routing_design.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/routing/18-resizer_design.log}"
+
+Tue Mar 19 10:21:20 UTC 2024 - Executing "{sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/dff_ram_4*72\/runs\/first_run\/tmp\/18-dff_ram_4x72.nl.v/} /openlane/designs/dff_ram_4*72/runs/first_run/config.tcl}"
+
+Tue Mar 19 10:21:20 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/routing/19-rsz_design_sta.log"
+
+Tue Mar 19 10:21:20 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/routing/19-rsz_design_sta.log}"
+
+Tue Mar 19 10:21:21 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/resizer_routing_timing.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/routing/20-resizer_timing.log"
+
+Tue Mar 19 10:21:21 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/resizer_routing_timing.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/routing/20-resizer_timing.log}"
+
+Tue Mar 19 10:21:24 UTC 2024 - Executing "{sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/dff_ram_4*72\/runs\/first_run\/tmp\/20-dff_ram_4x72.nl.v/} /openlane/designs/dff_ram_4*72/runs/first_run/config.tcl}"
+
+Tue Mar 19 10:21:24 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/routing/21-rsz_timing_sta.log"
+
+Tue Mar 19 10:21:24 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/routing/21-rsz_timing_sta.log}"
+
+Tue Mar 19 10:21:25 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/repair_antennas.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/routing/22-global.log"
+
+Tue Mar 19 10:21:25 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/repair_antennas.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/routing/22-global.log}"
+
+Tue Mar 19 10:21:27 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/write_views.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/routing/22-global_write_netlist.log"
+
+Tue Mar 19 10:21:27 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/write_views.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/routing/22-global_write_netlist.log}"
+
+Tue Mar 19 10:21:27 UTC 2024 - Executing "{sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/dff_ram_4*72\/runs\/first_run\/tmp\/routing\/global.nl.v/} /openlane/designs/dff_ram_4*72/runs/first_run/config.tcl}"
+
+Tue Mar 19 10:21:27 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/routing/24-grt_sta.log"
+
+Tue Mar 19 10:21:27 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/routing/24-grt_sta.log}"
+
+Tue Mar 19 10:21:28 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/fill.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/routing/25-fill.log"
+
+Tue Mar 19 10:21:28 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/fill.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/routing/25-fill.log}"
+
+Tue Mar 19 10:21:29 UTC 2024 - Executing "{sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/dff_ram_4*72\/runs\/first_run\/tmp\/routing\/25-fill.nl.v/} /openlane/designs/dff_ram_4*72/runs/first_run/config.tcl}"
+
+Tue Mar 19 10:21:29 UTC 2024 - Executing "openroad -exit -metrics /openlane/designs/dff_ram_4*72/runs/first_run/reports/routing/26-drt_metrics.json /openlane/scripts/openroad/droute.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/routing/26-detailed.log"
+
+Tue Mar 19 10:21:29 UTC 2024 - Executing "{openroad -exit -metrics /openlane/designs/dff_ram_4*72/runs/first_run/reports/routing/26-drt_metrics.json /openlane/scripts/openroad/droute.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/routing/26-detailed.log}"
+
+Tue Mar 19 10:22:31 UTC 2024 - Executing "{sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/dff_ram_4*72\/runs\/first_run\/results\/routing\/dff_ram_4x72.nl.v/} /openlane/designs/dff_ram_4*72/runs/first_run/config.tcl}"
+
+Tue Mar 19 10:22:31 UTC 2024 - Executing "{python3 /openlane/scripts/drc_rosetta.py tr to_klayout -o /openlane/designs/dff_ram_4*72/runs/first_run/reports/routing/drt.klayout.xml --design-name dff_ram_4x72 /openlane/designs/dff_ram_4*72/runs/first_run/reports/routing/drt.drc}"
+
+Tue Mar 19 10:22:31 UTC 2024 - Executing "{openroad -exit -no_init -python /openlane/scripts/odbpy/wire_lengths.py --report-out /openlane/designs/dff_ram_4*72/runs/first_run/reports/routing/27-wire_lengths.csv --input-lef /openlane/designs/dff_ram_4*72/runs/first_run/tmp/merged.nom.lef --output-def /dev/null --output /openlane/designs/dff_ram_4*72/runs/first_run/results/routing/dff_ram_4x72.odb /openlane/designs/dff_ram_4*72/runs/first_run/results/routing/dff_ram_4x72.odb |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/routing/27-wire_lengths.log}"
+
+Tue Mar 19 10:22:32 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/rcx.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/28-parasitics_extraction.min.log"
+
+Tue Mar 19 10:22:32 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/rcx.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/28-parasitics_extraction.min.log}"
+
+Tue Mar 19 10:22:33 UTC 2024 - Executing "sta -exit -no_init /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/29-rcx_mcsta.min.log"
+
+Tue Mar 19 10:22:33 UTC 2024 - Executing "{sta -exit -no_init /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/29-rcx_mcsta.min.log}"
+
+Tue Mar 19 10:22:38 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/rcx.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/30-parasitics_extraction.max.log"
+
+Tue Mar 19 10:22:38 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/rcx.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/30-parasitics_extraction.max.log}"
+
+Tue Mar 19 10:22:40 UTC 2024 - Executing "sta -exit -no_init /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/31-rcx_mcsta.max.log"
+
+Tue Mar 19 10:22:40 UTC 2024 - Executing "{sta -exit -no_init /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/31-rcx_mcsta.max.log}"
+
+Tue Mar 19 10:22:45 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/rcx.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/32-parasitics_extraction.nom.log"
+
+Tue Mar 19 10:22:45 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/rcx.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/32-parasitics_extraction.nom.log}"
+
+Tue Mar 19 10:22:46 UTC 2024 - Executing "sta -exit -no_init /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/33-rcx_mcsta.nom.log"
+
+Tue Mar 19 10:22:46 UTC 2024 - Executing "{sta -exit -no_init /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/33-rcx_mcsta.nom.log}"
+
+Tue Mar 19 10:22:52 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/irdrop.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/34-irdrop.log"
+
+Tue Mar 19 10:22:52 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/irdrop.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/34-irdrop.log}"
+
+Tue Mar 19 10:22:54 UTC 2024 - Executing "magic -noconsole -dnull -rcfile /home/kulsoom/.volare/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/35-gdsii.log"
+
+Tue Mar 19 10:22:54 UTC 2024 - Executing "{magic -noconsole -dnull -rcfile /home/kulsoom/.volare/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/35-gdsii.log}"
+
+Tue Mar 19 10:22:55 UTC 2024 - Executing "magic -noconsole -dnull -rcfile /home/kulsoom/.volare/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/35-gds_ptrs.log"
+
+Tue Mar 19 10:22:55 UTC 2024 - Executing "{magic -noconsole -dnull -rcfile /home/kulsoom/.volare/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/35-gds_ptrs.log}"
+
+Tue Mar 19 10:22:56 UTC 2024 - Executing "{sed -i.bak -n {/^<< properties >>/,/^<< end >>/p} /openlane/designs/dff_ram_4*72/runs/first_run/tmp/signoff/gds_ptrs.mag}"
+
+Tue Mar 19 10:22:56 UTC 2024 - Executing "magic -noconsole -dnull -rcfile /home/kulsoom/.volare/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/35-lef.log"
+
+Tue Mar 19 10:22:56 UTC 2024 - Executing "{magic -noconsole -dnull -rcfile /home/kulsoom/.volare/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/35-lef.log}"
+
+Tue Mar 19 10:22:58 UTC 2024 - Executing "magic -noconsole -dnull -rcfile /home/kulsoom/.volare/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/35-maglef.log"
+
+Tue Mar 19 10:22:58 UTC 2024 - Executing "{magic -noconsole -dnull -rcfile /home/kulsoom/.volare/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/35-maglef.log}"
+
+Tue Mar 19 10:22:58 UTC 2024 - Executing "{python3 /openlane/scripts/klayout/stream_out.py --output /openlane/designs/dff_ram_4*72/runs/first_run/results/signoff/dff_ram_4x72.klayout.gds --lyt /home/kulsoom/.volare/sky130A/libs.tech/klayout/tech/sky130A.lyt --lym /home/kulsoom/.volare/sky130A/libs.tech/klayout/tech/sky130A.map --lyp /home/kulsoom/.volare/sky130A/libs.tech/klayout/tech/sky130A.lyp --top dff_ram_4x72 --with-gds-file /home/kulsoom/.volare/sky130A/libs.ref/sky130_fd_sc_hd/gds/sky130_fd_sc_hd.gds --input-lef /openlane/designs/dff_ram_4*72/runs/first_run/tmp/merged.nom.lef /openlane/designs/dff_ram_4*72/runs/first_run/results/routing/dff_ram_4x72.def |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/36-gdsii-klayout.log}"
+
+Tue Mar 19 10:22:59 UTC 2024 - Executing "{klayout -b -r /openlane/scripts/klayout/xor.drc -rd a=/openlane/designs/dff_ram_4*72/runs/first_run/results/signoff/dff_ram_4x72.gds -rd b=/openlane/designs/dff_ram_4*72/runs/first_run/results/signoff/dff_ram_4x72.klayout.gds -rd jobs=1 -rd rdb_out=/openlane/designs/dff_ram_4*72/runs/first_run/reports/signoff/37-xor.xml -rd ignore=81/14 -rd rpt_out=/openlane/designs/dff_ram_4*72/runs/first_run/reports/signoff/37-xor.rpt |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/37-xor.log}"
+
+Tue Mar 19 10:23:03 UTC 2024 - Executing "magic -noconsole -dnull -rcfile /home/kulsoom/.volare/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/38-spice.log"
+
+Tue Mar 19 10:23:03 UTC 2024 - Executing "{magic -noconsole -dnull -rcfile /home/kulsoom/.volare/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/38-spice.log}"
+
+Tue Mar 19 10:23:06 UTC 2024 - Executing "{openroad -exit -no_init -python /openlane/scripts/odbpy/power_utils.py write_powered_def --output /openlane/designs/dff_ram_4*72/runs/first_run/tmp/signoff/38-dff_ram_4x72.p.def --input-lef /openlane/designs/dff_ram_4*72/runs/first_run/tmp/merged.nom.lef --power-port VPWR --ground-port VGND --powered-netlist {} /openlane/designs/dff_ram_4*72/runs/first_run/results/routing/dff_ram_4x72.def |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/39-write_powered_def.log}"
+
+Tue Mar 19 10:23:07 UTC 2024 - Executing "openroad -exit /openlane/scripts/openroad/write_views.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/39-write_powered_verilog.log"
+
+Tue Mar 19 10:23:07 UTC 2024 - Executing "{openroad -exit /openlane/scripts/openroad/write_views.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/39-write_powered_verilog.log}"
+
+Tue Mar 19 10:23:07 UTC 2024 - Executing "{sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/dff_ram_4*72\/runs\/first_run\/tmp\/signoff\/38-dff_ram_4x72.nl.v/} /openlane/designs/dff_ram_4*72/runs/first_run/config.tcl}"
+
+Tue Mar 19 10:23:08 UTC 2024 - Executing "{netgen -batch source /openlane/designs/dff_ram_4*72/runs/first_run/tmp/signoff/41-setup_file.lef.lvs |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/41-lvs.lef.log}"
+
+Tue Mar 19 10:23:08 UTC 2024 - Executing "magic -noconsole -dnull -rcfile /home/kulsoom/.volare/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/42-drc.log"
+
+Tue Mar 19 10:23:08 UTC 2024 - Executing "{magic -noconsole -dnull -rcfile /home/kulsoom/.volare/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/42-drc.log}"
+
+Tue Mar 19 10:23:18 UTC 2024 - Executing "{python3 /openlane/scripts/drc_rosetta.py magic to_tcl -o /openlane/designs/dff_ram_4*72/runs/first_run/reports/signoff/drc.tcl /openlane/designs/dff_ram_4*72/runs/first_run/reports/signoff/drc.rpt}"
+
+Tue Mar 19 10:23:18 UTC 2024 - Executing "{python3 /openlane/scripts/drc_rosetta.py magic to_tr -o /openlane/designs/dff_ram_4*72/runs/first_run/reports/signoff/drc.tr /openlane/designs/dff_ram_4*72/runs/first_run/reports/signoff/drc.rpt}"
+
+Tue Mar 19 10:23:18 UTC 2024 - Executing "{python3 /openlane/scripts/drc_rosetta.py tr to_klayout -o /openlane/designs/dff_ram_4*72/runs/first_run/reports/signoff/drc.klayout.xml --design-name dff_ram_4x72 /openlane/designs/dff_ram_4*72/runs/first_run/reports/signoff/drc.tr}"
+
+Tue Mar 19 10:23:18 UTC 2024 - Executing "{python3 /openlane/scripts/drc_rosetta.py magic to_rdb -o /openlane/designs/dff_ram_4*72/runs/first_run/reports/signoff/drc.rdb /openlane/designs/dff_ram_4*72/runs/first_run/reports/signoff/drc.rpt}"
+
+Tue Mar 19 10:23:18 UTC 2024 - Executing "{klayout -b -zz -r /home/kulsoom/.volare/sky130A/libs.tech/klayout/drc/sky130A_mr.drc -rd topcell=dff_ram_4x72 -rd input=/openlane/designs/dff_ram_4*72/runs/first_run/results/signoff/dff_ram_4x72.gds -rd report=/openlane/designs/dff_ram_4*72/runs/first_run/reports/signoff/violations.xml -rd feol=true -rd beol=true -rd floating_metal=false -rd seal=true -rd thread=1 |& tee /dev/null /openlane/designs/dff_ram_4*72/runs/first_run/logs/signoff/43-drc-klayout.log}"
+
+Tue Mar 19 10:23:19 UTC 2024 - Executing "{python3 /openlane/scripts/write_runtime.py --conclude --seconds --time-in 1710843799 {flow failed}}"
+
+Tue Mar 19 10:23:19 UTC 2024 - Executing "{python3 /openlane/scripts/generate_reports.py -d /openlane/designs/dff_ram_4*72 --design_name dff_ram_4x72 --tag first_run --output_file /openlane/designs/dff_ram_4*72/runs/first_run/reports/metrics.csv --man_report /openlane/designs/dff_ram_4*72/runs/first_run/reports/manufacturability.rpt --run_path /openlane/designs/dff_ram_4*72/runs/first_run}"
+
